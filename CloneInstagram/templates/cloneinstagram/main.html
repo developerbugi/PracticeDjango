@@ -50,18 +50,20 @@
 
 <div style="display: flex; flex-direction: row; text-align: center; justify-content: center; padding-top: 120px; background-color:#FAFAFA">
     <div style="width : 500px; min-width: 500px; height: 1000px; margin-right: 300px;">
+        <!-- 피드박스 -->
+        {% for feed in feeds %}
         <div style="border: solid 1px gray; background-color: white">
             <div style="display: flex; flex-direction: row; align-items: center; margin-left: 10px">
                 <div class="box" style="width:60px; height: 60px">
                     <img class="profile"
-                     src="https://i.pinimg.com/236x/6f/f0/83/6ff083374ce2118f4ea1c35a4593a070.jpg">
+                     src="{{ feed.profile_image }}">
                 </div>
                 <div>
-                    developebugi
+                    {{ feed.user_id }}
                 </div>
             </div>
             <div>
-                <img style="width: 100%" src="https://i.pinimg.com/originals/d3/29/33/d3293384656aa87733a662f231b5dfdf.jpg">
+                <img style="width: 100%" src="{{ feed.image }}">
             </div>
             <div style="display: flex; flex-direction: row; justify-content: space-between; margin-left: 5px; margin-top: 5px">
                 <div>
@@ -73,13 +75,15 @@
                     <span class="material-icons-round">turned_in_not</span>
                 </div>
             </div>
-            <div style="text-align: left; font-size : 14px; margin-left: 5px"> 송채영<b>외 19명</b>이 좋아합니다.</div>
-            <div style="text-align: left; font-size : 15px; margin-left: 5px"> <b>developbugi</b>: 새벽 감성 사진..</div>
+            <div style="text-align: left; font-size : 14px; margin-left: 5px"> 송채영<b>외 {{ feed.like_count }}명</b>이 좋아합니다.</div>
+            <div style="text-align: left; font-size : 15px; margin-left: 5px"> <b>{{ feed.user_id }}</b>: {{ feed.content }}</div>
             <hr>
             <div>
                 <input type="text" class="form-control" placeholder="댓글">
             </div>
         </div>
+        {% endfor %}
+        <!-- 피드박스 -->
     </div>
 
     <div style="width: 400px; height: 1000px; position: fixed; left: 62%;">
