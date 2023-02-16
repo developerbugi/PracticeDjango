@@ -95,7 +95,6 @@ class Profile(APIView):
                                                                     bookmark_feed_list=bookmark_feed_list,
                                                                     user=user))
 
-
 class UploadReply(APIView):
     def post(self, request):
         feed_id = request.data.get('feed_id', None)
